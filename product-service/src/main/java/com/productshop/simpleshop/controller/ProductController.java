@@ -5,6 +5,7 @@ import com.productshop.simpleshop.dto.ProductResponse;
 import com.productshop.simpleshop.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class ProductController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<ProductResponse> getAllProducts(){
+        System.out.println(new BCryptPasswordEncoder().encode("password"));
         return productService.getAllProducts();
     }
 }
